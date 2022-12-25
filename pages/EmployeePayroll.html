@@ -18,71 +18,71 @@
 
                 <!-- uc2 create header-->
 
-                <div class="form-content">
-                    <form class="form" action="#"
-                        onsubmit="save();return false">
-                        <div class="form-head">
-                            Employee Payroll form</div>
-                        <div class="row-content">
-                            <label class="label text"
-                                for="name">Name</label>
-                            <input class="input" type="text" id="name"
-                                name="name" placeholder="Your name.."
-                                required>
-                        </div>
-                    </form>
-                </div>  
+            <div class="form-content">
+                <form class="form" action="#"
+                    onsubmit="save();return false">
+                    <div class="form-head">
+                        Employee Payroll form</div>
+                    <div class="row-content">
+                       <label class="label text"
+                            for="name">Name</label>
+                       <input class="input" type="text" id="name"
+                            name="name" placeholder="Your name.."
+                            required>
+                    </div>
+                </form>
+            </div>  
                 
                 <!-- UC3 profile pic-->
 
-                <div class ="row-content">
-                    <label class="label text" for="profile">Profile image</label>
-                    <div class="profile-radio-content">
-                        <label>
-                            <input type="radio" id="profile1" name="profile"
-                                value="../assets/profilePics/dulqr" required>
-                                <img class="profile" id='image1' src="../assets/profilePics/dulqr.jpg">
-                        </label>
-                        <label>
-                            <input type="radio" id="profile2" name="profile"
-                                value="../assets/profilePics/Tovino" required>
-                                <img class="profile" id='image1' src="../assets/profilePics/Tovino.jpg">
-                        </label>
-                        <label>
-                            <input type="radio" id="profile3" name="profile"
-                                value="../assets/profilePics/kalyani" required>
-                                <img class="profile" id='image1' src="../assets/profilePics/kalyani.jpg">
-                        </label>
+            <div class ="row-content">
+                <label class="label text" for="profile">Profile image</label>
+                <div class="profile-radio-content">
+                    <label>
+                        <input type="radio" id="profile1" name="profile"
+                            value="../assets/profilePics/dulqr" required>
+                            <img class="profile" id='image1' src="../assets/profilePics/dulqr.jpg">
+                    </label>
+                    <label>
+                        <input type="radio" id="profile2" name="profile"
+                            value="../assets/profilePics/Tovino" required>
+                            <img class="profile" id='image1' src="../assets/profilePics/Tovino.jpg">
+                    </label>
+                    <label>
+                        <input type="radio" id="profile3" name="profile"
+                            value="../assets/profilePics/kalyani" required>
+                            <img class="profile" id='image1' src="../assets/profilePics/kalyani.jpg">
+                    </label>
+                </div>
+            </div>
+
+            <!-- UC4 specify gender as radio button dept as checkbox and specify salary range -->
+                
+            <div class="row-content">
+                <label class="label text" for="gender">Gender</label>
+                <div>
+                    <input type="radio"> id="male" name="gender" value="male">
+                    <label class="text" for="male">Male</label>
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label class="text" for="female">Female</label>
+                </div>
+                <div class="row-content">
+                    <label class="label text" for="department">Department</label>
+                    <div>
+                        <input class="checkbox" type="checkbox" id="hr" name="hr" value="HR">
+                        <label class="text" for="hr">HR</label>
+                        <input class="checkbox" type="checkbox" id="sales" name="sales" value="Sales">
+                        <label class="text" for="sales">Sales</label>
+                        <input class="checkbox" type="checkbox" id="finance" name="finance" value="Finance">
+                        <label class="text" for="finance">Finance</label>
+                        <input class="checkbox" type="checkbox" id="engineer" name="engineer" value="Engineer">
+                        <label class="text" for="engineer">Engineer</label>
+                        <input class="checkbox" type="checkbox" id="others" name="others" value="Others">
+                        <label class="text" for="others">Others</label>
                     </div>
                 </div>
-
-                <!-- UC4 specify gender as radio button dept as checkbox and specify salary range -->
-                
                 <div class="row-content">
-                    <label class="label text" for="gender">Gender</label>
-                    <div>
-                        <input type="radio"> id="male" name="gender" value="male">
-                        <label class="text" for="male">Male</label>
-                        <input type="radio" id="female" name="gender" value="female">
-                        <label class="text" for="female">Female</label>
-                    </div>
-                    <div class="row-content">
-                        <label class="label text" for="department">Department</label>
-                        <div>
-                            <input class="checkbox" type="checkbox" id="hr" name="hr" value="HR">
-                            <label class="text" for="hr">HR</label>
-                            <input class="checkbox" type="checkbox" id="sales" name="sales" value="Sales">
-                            <label class="text" for="sales">Sales</label>
-                            <input class="checkbox" type="checkbox" id="finance" name="finance" value="Finance">
-                            <label class="text" for="finance">Finance</label>
-                            <input class="checkbox" type="checkbox" id="engineer" name="engineer" value="Engineer">
-                            <label class="text" for="engineer">Engineer</label>
-                            <input class="checkbox" type="checkbox" id="others" name="others" value="Others">
-                            <label class="text" for="others">Others</label>
-                        </div>
-                    </div>
-                    <div class="row-content">
-                        <label class="label text" for="salary">Choose your salary:</label>
+                    <label class="label text" for="salary">Choose your salary:</label>
                         <input class="input" type="range" name="salary" id="salary" min="300000"
                             max="500000" step="100"value="400000">
                         <output class="salary-output text" for="salary">400000 </output>
@@ -147,6 +147,19 @@
                             <option value="2017">2017</option>
                             <option value="2016">2016</option>
                         </select>   
+                    </div>
+                </div>
+
+                <!-- UC6 --- add notes and button to cancel and submit -->
+                <div class="row-content">
+                    <label class="label text" for="notes">Notes</label>
+                    <textarea id="notes" class="input" name="Notes" placeholder="" style="height:100px"></textarea>
+                </div>
+                <div class="buttonParent">
+                    <a href="./home.html"class="resetButton button cancelButton">Cancel</a>
+                    <div class="submit-reset">
+                        <button> type="submit" class="button submitButton" id="submitButton">Submit</button>
+                        <button type="reset" class="resetButton button">Reset</button>
                     </div>
                 </div>
         </header>
