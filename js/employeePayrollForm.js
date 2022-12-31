@@ -1,3 +1,14 @@
+
+
+const text=document.querySelector('#text');
+const textError=document.querySelector('.text-error');
+text.addEventListener('input',function(){
+    let nameRegex=RegExp);
+    if(nameRegex.test(text.value))
+        textError.textContent="";
+    else textError.textContent="Name is Incorrect"  
+}); 
+
 const salary=document.querySelector('#salary');
 const output=document.querySelector('.salary-output');
 output.textContent=salary.value;
@@ -5,59 +16,26 @@ salary.addEventListener('input',function(){
     output.textContent=salary.value;
 });  
 
-
 class EmployeeData{
+    id;
     name;
-    profileImage;
+    profilePic;
     gender;
     department;
-    phone;
-    email;
     salary;
     startDate;
     notes;
 
-    //constructor
-
-    constructor(...params){
-        this.setName=params[0];
-        this.setProfilePic=params[1];
-        this.setGender=params[2];
-        this.setDepartment=params[3];
-        this.setPhone=params[4];
-        this.setEmail=params[5];
-        this.setSalary=params[6];
-        this.setStartDate=params[7];
-        this.setNotes=params[8];
+  
+    get getId(){
+        return this._id;
+    }
+    set id(id){
+        this._id=id;
     }
     get getName(){
         return this.name;
     }
-    get getProfilePic(){
-        return this.profilePic;
-    }
-    get getGender(){
-        return this.gender;
-    }
-    get getDept(){
-        return this.Dept;
-    }
-    get getPhone(){
-        return this.phone;
-    }
-    get getEmail(){
-        return this.email;
-    }
-    get getSalary(){
-        return this.salary;
-    }
-    get getStartDate(){
-        return this.startDate;
-    }
-    get getNotes(){
-        return this.notes;
-    }
-
     set setName(name){
         let nameRegex=RegExp("^[A-Z]{1}[a-z]{3,}$");
         if(nameRegex.test(name))
@@ -65,11 +43,49 @@ class EmployeeData{
         else throw "name is invalid";
     }
     
-    set setStartDate(startDate){
-        let startDateRegex=RegExp("^\\d[2010-2022]{4}-\\d[01-12]{2}-\\d[01-31]{2}$");
-        if(startDateRegex.test(startDate))
-            this.startDate=startDate;
-        else throw "start date is invalid"
+    get getProfilePic(){
+        return this._profilePic;
     }
+    get getGender(){
+        return this.gender;
+    }
+    set gender(gender){
+        this._gender=gender;
+    }
+    get department(){
+        return this._department;
+    }
+    set department(department){
+        this._department=department;
+    }
+    get salary(){
+        return this._salary;
+    }
+    set salary(salary){
+        this._salary=salary;
+    }
+    get getStartDate(){
+        return this.startDate;
+    }
+    set startDate(startDate){
+        this._startDate=startDate;
+    }
+    get getNotes(){
+        return this.notes;
+    }
+    set notes(notes){
+        this._notes=notes;
 
+    }
+  
+    toString(){
+        const options={year:'numeric',month:'long',day:'numeric'}
+        const empDate=!this.startDate?"undefined" : this.startDate.toLocaleDateString("en-US",options);
+        return "id = "+this.Id+"name = "+this.Name+" , gender = "+this.gender+" ,profilePic = "+this.profilePic
+                    +" ,phoneNo = "+this.phone+" , email = "+this.email+" ,startDate = "+this.startDate+" , notes = "+this.notes;
+    } 
+    
+    
 }
+let employeeData =new EmployeeData()
+console.log(employeeData.toString());
