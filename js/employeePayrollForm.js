@@ -24,10 +24,22 @@ window.addEventListener('DOMContentLoaded',(event)=>{
 
     const save=()=>{
         try{
-            let EmployeePayrollData=createEmployeePayroll();
+            let employeePayrollData=createEmployeePayroll();
+            createAndUpdateStorage(employeePayrollData);
         }catch(e){
             return;
         }
+    }
+
+    function createAndUpdateStorage(employeePayrollData){
+        let employeePayrollList=JSON.parse(localStorage.getItem("EmployeePayrollList"));
+        if(employeePayrollList!=undefined){
+            employeePayrollList.push(employeePayrollData);
+        }else{
+            employeePayrollList=[employeePayrollData]
+        }
+        alert(employeePayrollList.toString());
+        localStorage.setItem("EmployeePayrollList",JSON.stringify(employeePayrollList))
     }
 
     const createEmployeePayroll=()=>{
@@ -51,11 +63,11 @@ window.addEventListener('DOMContentLoaded',(event)=>{
 
     const getSelectedValues=(propertyValue) =>{
         let allItems=document.querySelectorAll(propertyValue);
-        let seLiTEMS=[];
+        let selItems=[];
         allItems.forEach(item=>{
-            if(item.checked)seLiTEMS.push(item.value);
+            if(item.checked)selItems.push(item.value);
         });
-        return seLiTEMS;
+        return selItems;
     }
 
     const getInputValueById=(id) =>{
@@ -67,6 +79,8 @@ window.addEventListener('DOMContentLoaded',(event)=>{
         let value=document.getElementById.value;
         return value;
     }
+
+    
 });  
 
 class EmployeePayrollData{
