@@ -79,9 +79,52 @@ window.addEventListener('DOMContentLoaded',(event)=>{
         let value=document.getElementById.value;
         return value;
     }
+    const resetForm=()=>{
+        setValue('#name','');
+        unsetSelectedValues('[name=profile]');
+        unsetSelectedValues('[name=gender]');
+        unsetSelectedValues('[name=depatment]');
+        setValue('#salary','');
+        setValue('#notes','');
+        setValue('#day','1');
+        setValue('#month','January');
+        setValue('#year','2020');
+    }
 
+    const unsetSelectedValues=(propertyValue)=>{
+        let allItems=document.querySelectorAll(proprtyValue);
+        allItems.forEach(item=>{
+            item.checked=false;
+        });
+    }
+
+    const setTextValue=(id,value) =>{
+        const element=document.querySelector(id);
+        element.textContent=value;
+    }
+
+    const setValue=(id,value)=>{
+        const element =document.querySelector(id);
+        element.value=value;
+    }
+
+    function getFormValue(e) {
+        e.preventDefault();
+        const id = document.getElementById("id").value;
+        const name = document.getElementById("name").value;
+        const gender = document.getElementById("gender").value;
+        const department = document.getElementById("department").value;
+        const salary = document.getElementById("salary").value;
+        const startDate = document.getElementById("startDate").value;
+        const notes = document.getElementById("notes").value;
     
-});  
+    }
+ 
+
+}); 
+
+   
+ 
 
 class EmployeePayrollData{
     id;
@@ -144,7 +187,7 @@ class EmployeePayrollData{
         this._notes=notes;
 
     }
-  
+    
     toString(){
         const options={year:'numeric',month:'long',day:'numeric'}
         const empDate=!this.startDate?"undefined" : this.startDate.toLocaleDateString("en-US",options);
@@ -154,5 +197,4 @@ class EmployeePayrollData{
     
     
 }
-let employeeData =new EmployeeData()
-console.log(employeeData.toString());
+
