@@ -21,7 +21,7 @@ window.addEventListener('DOMContentLoaded',(event)=>{
     salary.addEventListener('input',function(){
         output.textContent=salary.value;
     });
-
+});
     const save=()=>{
         try{
             let employeePayrollData=createEmployeePayroll();
@@ -75,8 +75,8 @@ window.addEventListener('DOMContentLoaded',(event)=>{
         return value;
     }
 
-    const getInputElementValue=(id)=>{
-        let value=document.getElementById.value;
+    const getInputElementValue = (id) => {
+        let value=document.getElementById(id).value;
         return value;
     }
     const resetForm=()=>{
@@ -92,7 +92,7 @@ window.addEventListener('DOMContentLoaded',(event)=>{
     }
 
     const unsetSelectedValues=(propertyValue)=>{
-        let allItems=document.querySelectorAll(proprtyValue);
+        let allItems=document.querySelectorAll(propertyValue);
         allItems.forEach(item=>{
             item.checked=false;
         });
@@ -121,7 +121,6 @@ window.addEventListener('DOMContentLoaded',(event)=>{
     }
  
 
-}); 
 
    
  
@@ -137,24 +136,27 @@ class EmployeePayrollData{
     notes;
 
   
-    get getId(){
-        return this._id;
+    get id(){
+        return this._name;
     }
     set id(id){
         this._id=id;
     }
-    get getName(){
+    get name(){
         return this.name;
     }
-    set setName(name){
-        let nameRegex=RegExp("^[A-Z]{1}[a-z]{3,}$");
+    set name(name){
+        let nameRegex=RegExp("^[A-Z]{1}[a-z]{2,}$");
         if(nameRegex.test(name))
-            this.name=name;
+            this._name=name;
         else throw "name is invalid";
     }
     
-    get getProfilePic(){
+    get profilePic(){
         return this._profilePic;
+    }
+    set profilePic(profilePic){
+         this._profilePic=profilePic;
     }
     get getGender(){
         return this.gender;
@@ -192,9 +194,8 @@ class EmployeePayrollData{
         const options={year:'numeric',month:'long',day:'numeric'}
         const empDate=!this.startDate?"undefined" : this.startDate.toLocaleDateString("en-US",options);
         return "id = "+this.Id+"name = "+this.Name+" , gender = "+this.gender+" ,profilePic = "+this.profilePic
-                    +" ,phoneNo = "+this.phone+" , email = "+this.email+" ,startDate = "+this.startDate+" , notes = "+this.notes;
+            +" ,salary = "+this.salary+" ,department = "+this.department+" ,gender = "+this.gender+" ,startDate = "+this.startDate+" , notes = "+this.notes;
     } 
-    
     
 }
 
