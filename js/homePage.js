@@ -6,6 +6,10 @@ window.addEventListener('DOMContentLoaded',(event) => {
     localStorage.removeItem('editEmp');
 });
 
+const getEmployeePayrollDateFromStorage=()=>{
+    return localStorage.getItem('EmployeePayrollList')?JSON.parse(localStorage.geItem('EmployeePayrollList')):[];
+}
+
 
 // Template literal ES6 feature
 const createInnerHtml = () => {
